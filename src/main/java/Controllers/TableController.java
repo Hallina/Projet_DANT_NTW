@@ -5,6 +5,7 @@ import services.TableService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("/api/table")
 @Consumes("application/json")
@@ -25,8 +26,8 @@ public class TableController {
     }
 
     @GET
-    public List<Object[]> search (List<String> colNames, List<Where> wheres){
-    	
+    public List<Object[]> search (List<String> colNames, List<Models.Where> wheres){
+    	return null;
     }
 
 }
