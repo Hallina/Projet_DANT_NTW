@@ -15,6 +15,7 @@ public class TableController {
 	//API REST avec les différentes type de requêtes
     private static final TableService tableService = new TableService();
 
+    //TODO a supprimer
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String helloWorld() {
