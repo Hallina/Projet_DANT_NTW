@@ -11,7 +11,7 @@ import java.util.List;
 @Consumes("application/json")
 @Produces("application/json")
 public class TableController {
-	//API REST avec les différentes type de reqûetes
+	//API REST avec les différentes type de requêtes
     private static final TableService tableService = new TableService();
 
     @POST
@@ -27,7 +27,8 @@ public class TableController {
 
     @GET
     public List<Object[]> search (List<String> colNames, List<Models.Where> wheres){
-    	return null;
+        //TODO a modifier
+        return null;
     }
 
 }

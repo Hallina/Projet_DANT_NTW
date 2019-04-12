@@ -38,6 +38,7 @@ public class Index {
                 indexByColumns.get(position).get(where.getValue());
             }
         }
+        //TODO a modifier
         return null;
     }
 
