@@ -17,6 +17,7 @@ public class Index {
         this.lines = lines;
     }
 
+    // Fonction insert
     public void insert(Object[] line) {
         //insertion de line dans chaque index en parcourant tous les indexes, selon leurs positions
         for (Map.Entry<Integer, IndexColumn> indexColumn : indexByColumns.entrySet()) {
@@ -38,6 +39,7 @@ public class Index {
         }
     }
 
+    // get without index
     public List<Object[]> getWithoutIndex(int colPosition, String value){
         //Full Scan
         List<Object[]> res = new ArrayList<>();
@@ -49,7 +51,7 @@ public class Index {
         return res;
     }
 
-
+    // Id without Index
     public List<Integer> getRowIdsWithoutIndex(int colPosition, String value){
         List<Integer> res = new ArrayList<>();
         for(int i = 0 ; i < lines.size() ; i++){
