@@ -1,5 +1,6 @@
 package com.dant.app;
 
+import Controllers.TableController;
 import com.dant.exception.RuntimeExceptionMapper;
 import com.dant.filter.GsonProvider;
 
@@ -18,6 +19,7 @@ public class App extends Application {
 	public Set<Object> getSingletons() {
 		Set<Object> sets = new HashSet<>(1);
 		sets.add(new TestEndpoint());
+		sets.add(new TableController());
 		return sets;
 	}
 
