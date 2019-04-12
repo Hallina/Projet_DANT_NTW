@@ -20,9 +20,13 @@ public class TableController {
     }
 
     @GET
-    public Response get (String name){
-    	tableService.get(name);
-    	return Response.ok().build();
+    public Table get (String name){
+    	return tableService.get(name);
+    }
+
+    @GET
+    public List<Object[]> search (List<String> colNames, List<Where> wheres){
+    	
     }
 
 }
