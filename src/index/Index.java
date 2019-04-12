@@ -12,6 +12,7 @@ public class Index {
     private List<Object[]> lines;
     // Column Position by Index for one column
     private Map<Integer, IndexColumn> indexByColumns = new HashMap<>();
+    private List<String> indexedColumns;
 
     public Index(List<Object[]> lines) {
         this.lines = lines;
