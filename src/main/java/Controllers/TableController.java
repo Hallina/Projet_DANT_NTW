@@ -4,6 +4,7 @@ import index.Table;
 import services.TableService;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -14,18 +15,26 @@ public class TableController {
 	//API REST avec les différentes type de reqûetes
     private static final TableService tableService = new TableService();
 
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public String helloWorld() {
+        return "Hello World";
+    }
+
     @POST
-    public Response create (Table table){
+    @Path("/create")
+    public Response create (Table table){ // remplacer par String
         tableService.add(table);
         return Response.ok().build();
     }
 
     @GET
-    public Table get (String name){
+    public Table get (@QueryParam("name") String name){
     	return tableService.get(name);
     }
 
     @GET
+    @Path("/search")
     public List<Object[]> search (List<String> colNames, List<Models.Where> wheres){
     	return null;
     }
