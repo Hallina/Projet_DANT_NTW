@@ -25,9 +25,5 @@ public class Main {
 			Index index = mesIndexes.get(j);
 			HashMap<Integer, IndexColumn> hm = index.getIndexByColumns();
 		}
-		
-		for(int i : c.getChamps().keySet()) {
-			System.out.println(c.getChamps().get(i));
-		}
 	}
 }

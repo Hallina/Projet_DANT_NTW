@@ -2,17 +2,16 @@ package index;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class CSVParser {
 	private ArrayList<String[]> lines;
 	private String path;
-	private HashMap<Integer, String> champs;
+	private static ArrayList<String> champs;
 	
 	public CSVParser(String path) {
 		this.path = path;
 		lines = new ArrayList<>();
-		champs = new HashMap<>();
+		champs = new ArrayList<>();
 	}
 	
 	public void separe_lines_champ() {
@@ -24,7 +23,7 @@ public class CSVParser {
 		      String[] list_champ = strCurrentLine.split(",");
 		      
 		      for(int i = 0; i < list_champ.length; i++) {
-		    	  champs.put(i,list_champ[i]);
+		    	  champs.add(list_champ[i]);
 		      }
 		      while ((strCurrentLine = br.readLine()) != null) {
 		    	  String[] s = strCurrentLine.split(",");
@@ -36,7 +35,7 @@ public class CSVParser {
 		}
 	}
 	
-	public HashMap<Integer, String> getChamps(){
+	public static ArrayList<String> getChamps(){
 		return champs;
 	}
 	

@@ -22,20 +22,16 @@ public class Index {
     	return indexByColumns;
     }
 
-    /*public ArrayList<Object[]> get(ArrayList<String> colNames, ArrayList<Where> wheres) {
-        //Scan by wheres
+    public ArrayList<Object> getSearchArea(ArrayList<String> champs, ArrayList<Where> wheres) {
+    	ArrayList<Object> res = new ArrayList<>();
+        //Récupération de zone de recherche
         for (Where where : wheres) {
-            int position = colNames.indexOf(where.getField());
-            if (position == -1) {
-                getRowIdsWithoutIndex(position, where.getValue());
-            } else {
-                indexByColumns.get(position).get(where.getValue());
-            }
+            int position = CSVParser.getChamps().indexOf(where);
+            res.add(indexByColumns.get(position));
         }
-        //TODO a modifier
-        return null;
+        return res;
     }
-
+/*
     // get without index
     public ArrayList<Object[]> getWithoutIndex(int colPosition, String value){
         //Full Scan
