@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import index.*;
 
 
@@ -5,18 +7,27 @@ public class Main {
 
 	public static void main(String[] args) {
 		Table maTable = new Table("Test");
+		ArrayList<Index> mesIndexes = maTable.getIndexes();
+		CSVParser c = null;
 		try {
-			new CSVParser("C:\\Users\\yasse\\Downloads\\yellow_tripdata_2018-12.csv").separe_lines_champ();
+			c = new CSVParser("C:\\Users\\yasse\\Downloads\\test.csv");
+			c.separe_lines_champ();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		for(int i = 0; i < CSVParser.getLines().size(); i++) {
+		
+		for(int i = 0; i < c.getLines().size(); i++) {
 			maTable.ajouterIndex();
 		}
 		
-		for(int j = 0; j < maTable.getIndexes().size(); j++) {
-			System.out.println(maTable.getIndexes().get(j).getIndexByColumns().entrySet());
+		for(int j = 0; j < mesIndexes.size(); j++) {
+			Index index = mesIndexes.get(j);
+			HashMap<Integer, IndexColumn> hm = index.getIndexByColumns();
+		}
+		
+		for(int i : c.getChamps().keySet()) {
+			System.out.println(c.getChamps().get(i));
 		}
 	}
-
 }
