@@ -10,12 +10,12 @@ public class Main {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		for(int i = 0; i < CSVParser.getLines().size() ;i++) {
+		for(int i = 0; i < CSVParser.getLines().size(); i++) {
 			maTable.ajouterIndex();
 		}
 		
 		for(int j = 0; j < maTable.getIndexes().size(); j++) {
-			System.out.println(maTable.getIndexes().get(j).getId());
+			System.out.println(maTable.getIndexes().get(j).getIndexByColumns().entrySet());
 		}
 	}
 

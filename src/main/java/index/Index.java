@@ -1,8 +1,6 @@
 package index;
 
 import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
 import java.util.ArrayList;
 import Models.Where;
 
@@ -20,8 +18,8 @@ public class Index {
     	return id;
     }
     
-    public Set<Entry<Integer, IndexColumn>> getIndexByColumns(){
-    	return indexByColumns.entrySet();
+    public HashMap<Integer, IndexColumn> getIndexByColumns(){
+    	return indexByColumns;
     }
 
     /*public ArrayList<Object[]> get(ArrayList<String> colNames, ArrayList<Where> wheres) {
@@ -60,5 +58,4 @@ public class Index {
         }
         return res;
     }*/
-
 }
