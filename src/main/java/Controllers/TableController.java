@@ -1,5 +1,6 @@
 package Controllers;
 
+import index.Index;
 import index.Table;
 import services.TableService;
 
@@ -39,6 +40,12 @@ public class TableController {
     public List<Object[]> search (List<String> colNames, List<Models.Where> wheres){
         //TODO a modifier
         return null;
+    }
+
+    @POST
+    @Path("/add-index/{tableName}")
+    public Response create (@PathParam("tableName") String tableName, Index index) {
+        throw new RuntimeException("not implemented yet");
     }
 
 }
