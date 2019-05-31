@@ -33,7 +33,7 @@ public class Table {
     
     public Index from(ArrayList<String> champs, Where where) {
         //Récupération de zone de recherche (FROM)
-        int position = CSVParser.getChamps().indexOf(where.getField());
+        int position = champs.indexOf(where.getField());
         return indexes.get(position);
     }
     
