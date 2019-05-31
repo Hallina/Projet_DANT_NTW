@@ -52,6 +52,29 @@ public class Table {
     		}
     	}
     	return res;
+    }
+    
+    // get without index
+    public ArrayList<Object[]> getWithoutIndex(int indexPosition, String value){
+        //Full Scan
+        ArrayList<Object[]> res = new ArrayList<>();
+        for(Object[] line : CSVParser.getLines()){
+            if (line[colPosition].equals(value)) {
+                res.add(line);
+            }
+        }
+        return res;
+    }
+
+    // Id without Index
+    public ArrayList<Integer> getRowIdsWithoutIndex(int colPosition, String value){
+        ArrayList<Integer> res = new ArrayList<>();
+        for(int i = 0 ; i < CSVParser.getLines().size() ; i++){
+            if (CSVParser.getLines().get(i)[colPosition].equals(value)) {
+                res.add(i);
+            }
+        }
+        return res;
     }*/
 
     @Override
