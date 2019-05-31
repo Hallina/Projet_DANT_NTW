@@ -15,9 +15,10 @@ public class Main {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			return;
 		}
 		
-		for(int i = 0; i < c.getLines().size(); i++) {
+		for(int i = 0; i < c.getChamps().size(); i++) {
 			maTable.ajouterIndex();
 		}
 		

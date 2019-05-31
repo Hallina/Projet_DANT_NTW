@@ -1,6 +1,7 @@
 package index;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
 import java.util.Objects;
 import Models.Where;
 
@@ -36,24 +37,21 @@ public class Table {
         return indexes.get(position);
     }
     
-    /*public ArrayList<Object> select(ArrayList<String> champs, ArrayList<Where> wheres){
+    public ArrayList<Object> select(ArrayList<String> champs, ArrayList<Where> wheres){
     	ArrayList<Object> res = new ArrayList<>();
-    	int key = 0;
     	for(Where w : wheres) {
     		Index i = from(champs, w);
-    		Set s = i.getValues().entrySet();
     		//Parcours les valeurs de la hashmap de i par clé
-    		while() {
-    			String strToCompare = i.getValues().get(key);
+    		for(Entry<Integer, String> keyvalue : i.getValues().entrySet()) {
+    			String strToCompare = keyvalue.getValue();
     			if(strToCompare.equals(w.getValue())){
     				res.add(strToCompare);
     			}
-    			key++;
     		}
     	}
     	return res;
     }
-    
+/*    
     // get without index
     public ArrayList<Object[]> getWithoutIndex(int indexPosition, String value){
         //Full Scan
