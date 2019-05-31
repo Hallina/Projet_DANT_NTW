@@ -22,9 +22,13 @@ public class Main {
 			maTable.ajouterIndex();
 		}
 		
+		int champPos = 0;
 		for(int j = 0; j < mesIndexes.size(); j++) {
 			Index index = mesIndexes.get(j);
-			HashMap<Integer, String> hm = index.getValues();
+			for(int k = 0; k < c.getLines().size(); k++) {
+				index.insert(c.getLines().get(k)[champPos]);
+			}
+			champPos++;
 		}
 	}
 }
