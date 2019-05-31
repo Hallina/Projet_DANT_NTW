@@ -23,7 +23,7 @@ public class Main {
 		
 		for(int j = 0; j < mesIndexes.size(); j++) {
 			Index index = mesIndexes.get(j);
-			HashMap<Integer, IndexColumn> hm = index.getIndexByColumns();
+			HashMap<Integer, String> hm = index.getValues();
 		}
 	}
 }

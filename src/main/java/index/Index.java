@@ -1,36 +1,33 @@
 package index;
 
 import java.util.HashMap;
-import java.util.ArrayList;
-import Models.Where;
 
 public class Index {
     private static int cpt_index = 0;
-    private int id;
-    private HashMap<Integer, IndexColumn> indexByColumns;
+    private int position;
+    private HashMap<Integer, String> values;
+  
     public Index() {
-    	id = cpt_index++;
-        indexByColumns = new HashMap<>();
-        indexByColumns.put(id, new IndexColumn());
+    	position = cpt_index++;
+        values = new HashMap<>();
     }
     
-    public int getId() {
-    	return id;
+    public int getPosition() {
+    	return position;
     }
     
-    public HashMap<Integer, IndexColumn> getIndexByColumns(){
-    	return indexByColumns;
+    public HashMap<Integer, String> getValues() {
+    	return values;
     }
 
-    public ArrayList<Object> getSearchArea(ArrayList<String> champs, ArrayList<Where> wheres) {
-    	ArrayList<Object> res = new ArrayList<>();
-        //Récupération de zone de recherche
-        for (Where where : wheres) {
-            int position = CSVParser.getChamps().indexOf(where);
-            res.add(indexByColumns.get(position));
-        }
-        return res;
+    public void insert(String value){
+    	int i = 0;
+    	while(values.containsKey(i)) {
+    		i++;
+    	}
+        values.put(i,value);
     }
+
 /*
     // get without index
     public ArrayList<Object[]> getWithoutIndex(int colPosition, String value){

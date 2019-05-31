@@ -2,6 +2,7 @@ package index;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import Models.Where;
 
 public class Table {
 
@@ -28,6 +29,30 @@ public class Table {
     public void ajouterIndex() {
     	indexes.add(new Index());
     }
+    
+    public Index from(ArrayList<String> champs, Where where) {
+        //Récupération de zone de recherche (FROM)
+        int position = CSVParser.getChamps().indexOf(where.getField());
+        return indexes.get(position);
+    }
+    
+    /*public ArrayList<Object> select(ArrayList<String> champs, ArrayList<Where> wheres){
+    	ArrayList<Object> res = new ArrayList<>();
+    	int key = 0;
+    	for(Where w : wheres) {
+    		Index i = from(champs, w);
+    		Set s = i.getValues().entrySet();
+    		//Parcours les valeurs de la hashmap de i par clé
+    		while() {
+    			String strToCompare = i.getValues().get(key);
+    			if(strToCompare.equals(w.getValue())){
+    				res.add(strToCompare);
+    			}
+    			key++;
+    		}
+    	}
+    	return res;
+    }*/
 
     @Override
     public boolean equals(Object o) {
