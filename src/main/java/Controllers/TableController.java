@@ -1,5 +1,6 @@
 package Controllers;
 
+import index.Index;
 import index.Table;
 import services.TableService;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Consumes("application/json")
 @Produces("application/json")
 public class TableController {
-	//API REST avec les diffÃ©rentes type de requÃªtes
+	//API REST avec les différentes type de requêtes
     private static final TableService tableService = new TableService();
 
     //TODO a supprimer
@@ -39,6 +40,12 @@ public class TableController {
     public List<Object[]> search (List<String> colNames, List<Models.Where> wheres){
         //TODO a modifier
         return null;
+    }
+
+    @POST
+    @Path("/add-index/{tableName}")
+    public Response create (@PathParam("tableName") String tableName, Index index) {
+        throw new RuntimeException("not implemented yet");
     }
 
 }
