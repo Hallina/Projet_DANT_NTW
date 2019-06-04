@@ -23,13 +23,15 @@ public class TableController {
     }
 
     @POST
-    @Path("/create")
-    public Response create (Table table){ // remplacer par String
-        tableService.add(table);
-        return Response.ok().build();
+    @Path("/create/{name_table}")
+    public Response create(@PathParam("name_table") String name){
+        tableService.add(new Table(name));
+        return Response.status(200).entity("Création de la table : " + name).build();
     }
 
     @GET
+    @Path("/get/{name_table}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Table get (@QueryParam("name") String name){
     	return tableService.get(name);
     }

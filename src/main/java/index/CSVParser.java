@@ -4,8 +4,9 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class CSVParser {
-	private ArrayList<String[]> lines;
+	
 	private String path;
+	private static ArrayList<String[]> lines;
 	private static ArrayList<String> champs;
 	
 	public CSVParser(String path) {
@@ -39,7 +40,7 @@ public class CSVParser {
 		return champs;
 	}
 	
-	public ArrayList<String[]> getLines(){
+	public static ArrayList<String[]> getLines(){
 		return lines;
 	}
 }

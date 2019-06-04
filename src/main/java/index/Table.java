@@ -37,43 +37,29 @@ public class Table {
         return indexes.get(position);
     }
     
-    public ArrayList<Object> select(ArrayList<String> champs, ArrayList<Where> wheres){
-    	ArrayList<Object> res = new ArrayList<>();
+    public ArrayList<String> select(ArrayList<String> champs, ArrayList<Where> wheres){
+    	ArrayList<String> res = new ArrayList<>();
+    	String line = null;
+    	String[] line_to_add = null;
+    	
     	for(Where w : wheres) {
     		Index i = from(champs, w);
     		//Parcours les valeurs de la hashmap de i par clé
     		for(Entry<Integer, String> keyvalue : i.getValues().entrySet()) {
+    			int key = keyvalue.getKey();
     			String strToCompare = keyvalue.getValue();
     			if(strToCompare.equals(w.getValue())){
-    				res.add(strToCompare);
+    				line_to_add = CSVParser.getLines().get(key);
     			}
     		}
+    		line = "";
+    		for(int ind = 0; ind < line_to_add.length; ind++) {
+    			line += "," + line_to_add[ind];
+    		}
+    		res.add(line);
     	}
-    	return res;
+		return res;
     }
-/*    
-    // get without index
-    public ArrayList<Object[]> getWithoutIndex(int indexPosition, String value){
-        //Full Scan
-        ArrayList<Object[]> res = new ArrayList<>();
-        for(Object[] line : CSVParser.getLines()){
-            if (line[colPosition].equals(value)) {
-                res.add(line);
-            }
-        }
-        return res;
-    }
-
-    // Id without Index
-    public ArrayList<Integer> getRowIdsWithoutIndex(int colPosition, String value){
-        ArrayList<Integer> res = new ArrayList<>();
-        for(int i = 0 ; i < CSVParser.getLines().size() ; i++){
-            if (CSVParser.getLines().get(i)[colPosition].equals(value)) {
-                res.add(i);
-            }
-        }
-        return res;
-    }*/
 
     @Override
     public boolean equals(Object o) {
