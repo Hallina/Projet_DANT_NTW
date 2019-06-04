@@ -54,7 +54,7 @@ public class Table {
     		}
     		line = "";
     		for(int ind = 0; ind < line_to_add.length; ind++) {
-    			line += "," + line_to_add[ind];
+    			line += line_to_add[ind] + ",";
     		}
     		res.add(line);
     	}

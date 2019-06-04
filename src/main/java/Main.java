@@ -22,10 +22,12 @@ public class Main {
 		}
 		
 		int champPos = 0;
+		int wc = 0;
 		for(int j = 0; j < mesIndexes.size(); j++) {
 			Index index = mesIndexes.get(j);
 			for(int k = 0; k < c.getLines().size(); k++) {
-				index.insert(c.getLines().get(k)[champPos]);
+				//index.insert(c.getLines().get(k)[champPos]);
+				System.out.println(wc++);
 			}
 			champPos++;
 		}
