@@ -26,6 +26,8 @@ public class CSVParser {
 		      for(int i = 0; i < list_champ.length; i++) {
 		    	  champs.add(list_champ[i]);
 		      }
+		      //éviter ligne vide
+		      br.readLine();
 		      while ((strCurrentLine = br.readLine()) != null) {
 		    	  String[] s = strCurrentLine.split(",");
 		    	  lines.add(s);

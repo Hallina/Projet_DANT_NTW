@@ -60,6 +60,11 @@ public class Table {
     	}
 		return res;
     }
+    
+    public void removeIndex(int position) {
+    	indexes.remove(position);
+    	CSVParser.getChamps().remove(position);
+    }
 
     @Override
     public boolean equals(Object o) {
