@@ -20,5 +20,9 @@ public class TableService {
     public Table get(String name) {
         return tables.get(name);
     }
+    
+    public Map<String, Table> getTables() {
+    	return tables;
+    }
 
 }

@@ -27,9 +27,9 @@ public class Main {
 			Index index = mesIndexes.get(j);
 			for(int k = 0; k < CSVParser.getLines().size(); k++) {
 				String word = CSVParser.getLines().get(k)[champPos];
-				//index.insert(word);
-
-				System.out.println("Index " + index.getPosition() + " : " + word + ", " + ++wc + "e valeur indéxé");
+				index.insert(word);
+				
+				System.out.println("Index " + index.getColumn() + " : " + word + ", " + ++wc + "e valeur indéxé");
 			}
 			champPos++;
 		}

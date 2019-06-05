@@ -4,16 +4,16 @@ import java.util.HashMap;
 
 public class Index {
     private static int cpt_index = 0;
-    private int position;
+    private int column;
     private HashMap<Integer, String> values;
   
     public Index() {
-    	position = cpt_index++;
+    	column = cpt_index++;
         values = new HashMap<>();
     }
     
-    public int getPosition() {
-    	return position;
+    public int getColumn() {
+    	return column;
     }
     
     public HashMap<Integer, String> getValues() {
