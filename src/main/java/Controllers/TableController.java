@@ -1,18 +1,18 @@
 package Controllers;
 
-import index.CSVParser;
-import index.Index;
-import index.Table;
-import services.TableService;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 
+import Models.Where;
+import index.CSVParser;
+import index.Index;
+import index.Table;
+import services.TableService;
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map.Entry;
 
 @Path("/api/table")
@@ -32,7 +32,7 @@ public class TableController {
     
     //GET table "name" en JSON
     @GET
-    @Path("/select/{name_table}")
+    @Path("/get/{name_table}")
     public String select(@PathParam("name_table") String name){
     	return new Gson().toJson(tableService.get(name));
     }
@@ -54,7 +54,7 @@ public class TableController {
 		ArrayList<Index> mesIndexes = maTable.getIndexes();
 		
 		try {
-			new CSVParser("C:\\Users\\yasse\\Downloads\\yellow-tripdata-2018-12.csv").separe_lines_champ();	
+			new CSVParser("C:\\Users\\yasse\\Downloads\\test2.csv").separe_lines_champ();	
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
@@ -75,14 +75,18 @@ public class TableController {
 		}
     	return Response.status(200).entity("Indéxation de données dans la table : " + name).build();
     }
-
+    
+    //GET requete select from where
     @GET
-    @Path("/search")
-    public List<Object[]> search (){
-        for(Entry<String, Table> keyvalue : tableService.getTables().entrySet()) {
-        	//...
-        }
-        return null;
+    @Path("/get/{field}/{value}")
+    public String search(@PathParam("field") String field, @PathParam("value") String value) {
+    	ArrayList<ArrayList<String[]>> res = new ArrayList<>();
+    	for(Entry<String, Table> keyvalue : tableService.getTables().entrySet()) {
+    		ArrayList<String[]> aux = keyvalue.getValue().select(CSVParser.getChamps(), new Where(field,value));
+    		if(aux != null) {
+    			res.add(aux);
+    		}
+    	}
+    	return new Gson().toJson(res);
     }
-
 }

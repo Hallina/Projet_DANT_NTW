@@ -61,6 +61,23 @@ public class Table {
 		return res;
     }
     
+    public ArrayList<String[]> select(ArrayList<String> champs, Where where){
+    	ArrayList<String[]> res = new ArrayList<>();
+    	String[] line_to_add = null;
+    	
+    	Index i = from(champs, where);
+   		//Parcours les valeurs de la hashmap de i par clé
+    	for(Entry<Integer, String> keyvalue : i.getValues().entrySet()) {
+    		int key = keyvalue.getKey();
+   			String strToCompare = keyvalue.getValue();
+			if(strToCompare.equals(where.getValue())){
+				line_to_add = CSVParser.getLines().get(key);
+				res.add(line_to_add);
+			}
+		}
+		return res;
+    }
+    
     public void removeIndex(int position) {
     	indexes.remove(position);
     	CSVParser.getChamps().remove(position);
