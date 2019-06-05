@@ -44,7 +44,9 @@ public class TableController {
 
     @POST
     @Path("/add-index/{tableName}")
-    public Response create (@PathParam("tableName") String tableName, Index index) {
+    public Response createIndex (@PathParam("tableName") String tableName, List<String> indexedColumns) {
+        Index index = new Index(null);
+        tableService.get(tableName).addIndex(index);
         throw new RuntimeException("not implemented yet");
     }
 

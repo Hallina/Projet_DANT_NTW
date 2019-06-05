@@ -36,6 +36,10 @@ public class Table {
         }
     }
 
+    public void addIndex(Index index) {
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
